@@ -1,11 +1,12 @@
 package info.firozansari.bikeshop.shop.components
 
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class FrameTest {
-    var frame: Frame? = null
+    private lateinit var frame: Frame
 
     @BeforeEach
     fun before() {
@@ -15,12 +16,12 @@ class FrameTest {
     @get:Test
     val material: Unit
         get() {
-            Assertions.assertEquals("carbon", frame!!.material)
+            assertEquals("carbon", frame.material)
         }
 
     @get:Test
     val make: Unit
         get() {
-            Assertions.assertEquals("Cinelli", frame!!.make)
+            assertEquals("Cinelli", frame.make)
         }
 }

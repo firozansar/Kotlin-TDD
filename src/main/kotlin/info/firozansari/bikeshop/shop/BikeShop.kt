@@ -1,13 +1,13 @@
 package info.firozansari.bikeshop.shop
 
-import info.firozansari.bikeshop.behaviours.IBuy
-import info.firozansari.bikeshop.behaviours.ISell
+import info.firozansari.bikeshop.behaviours.Buy
+import info.firozansari.bikeshop.behaviours.Sell
 import info.firozansari.bikeshop.people.Customer
 import info.firozansari.bikeshop.people.Staff
 import info.firozansari.bikeshop.shop.bikes.Bike
 import info.firozansari.bikeshop.shop.components.BikePart
 
-class BikeShop(val staff: Staff, val customer: Customer, var till: Int) : IBuy, ISell {
+class BikeShop(val staff: Staff, val customer: Customer, var till: Int) : Buy, Sell {
     var bikes: ArrayList<Product> = ArrayList()
     var stock: ArrayList<Product> = ArrayList()
     override fun buy(product: Product?) {

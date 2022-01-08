@@ -1,13 +1,13 @@
 package info.firozansari.bikeshop.shop.bikes
 
-import info.firozansari.bikeshop.behaviours.ICycle
+import info.firozansari.bikeshop.behaviours.Cycle
 import info.firozansari.bikeshop.shop.Product
 import info.firozansari.bikeshop.shop.components.Crankset
 import info.firozansari.bikeshop.shop.components.Frame
 import info.firozansari.bikeshop.shop.components.Tyre
 import info.firozansari.bikeshop.shop.components.Wheel
 
-abstract class Bike(val frame: Frame, crankset: Crankset, price: Int, type: String) : Product(price), ICycle {
+abstract class Bike(val frame: Frame, crankset: Crankset, price: Int, type: String) : Product(price), Cycle {
     var tyres: ArrayList<Tyre> = ArrayList()
     var wheels: ArrayList<Wheel>
     private val crankset: Crankset

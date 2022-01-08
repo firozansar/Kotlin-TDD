@@ -1,9 +1,9 @@
 package info.firozansari.bikeshop.people
 
-import info.firozansari.bikeshop.behaviours.IBuy
+import info.firozansari.bikeshop.behaviours.Buy
 import info.firozansari.bikeshop.shop.Product
 
-class Customer(name: String?, var wallet: Int) : Person(name), IBuy {
+class Customer(name: String?, var wallet: Int) : Person(name), Buy {
     var basket: ArrayList<Product> = ArrayList()
     val collection: ArrayList<Product?> = ArrayList()
 

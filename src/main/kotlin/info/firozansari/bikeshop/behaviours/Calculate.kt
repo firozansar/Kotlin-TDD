@@ -1,5 +1,5 @@
 package info.firozansari.bikeshop.behaviours
 
-interface ICalculate {
+interface Calculate {
     fun calculatePrice()
 }

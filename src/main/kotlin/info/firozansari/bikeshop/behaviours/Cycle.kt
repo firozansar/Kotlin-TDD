@@ -1,5 +1,5 @@
 package info.firozansari.bikeshop.behaviours
 
-interface ICycle {
+interface Cycle {
     fun cycle(): String
 }

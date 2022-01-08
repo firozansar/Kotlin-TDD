@@ -1,11 +1,12 @@
 package info.firozansari.bikeshop.shop.components
 
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 
 class TyreTest {
-    var tyre: Tyre? = null
+    private lateinit var tyre: Tyre
+
     @BeforeEach
     fun before() {
         tyre = Tyre("Michellin", 700, 23, 10)
@@ -13,6 +14,6 @@ class TyreTest {
 
     @Test
     fun hasSize() {
-        Assertions.assertEquals(700, tyre!!.size)
+        assertEquals(700, tyre.size)
     }
 }
