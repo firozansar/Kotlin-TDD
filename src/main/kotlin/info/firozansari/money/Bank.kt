@@ -14,12 +14,11 @@ class Bank {
     }
 
     fun rate(from: String, to: String): Int {
-        if (from.equals(to)) {
-            return 1
-        } 
-        else {
+        return if (from == to) {
+            1
+        } else {
             check(rates.containsKey(CurrencyPair(from, to)))
-            return rates.getValue(CurrencyPair(from, to))
+            rates.getValue(CurrencyPair(from, to))
         }
     }
 }

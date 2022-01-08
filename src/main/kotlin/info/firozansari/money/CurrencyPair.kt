@@ -4,10 +4,8 @@ class CurrencyPair(private val from: String, private val to: String) {
 
     override fun equals(other: Any?): Boolean {
         require(other is CurrencyPair) { "other must be CurrencyPair." }
-        return from.equals(other.from) && to.equals(other.to)
+        return from == other.from && to == other.to
     }
 
-    override fun hashCode(): Int {
-        return 0
-    }
+    override fun hashCode(): Int = 0
 }
