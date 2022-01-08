@@ -149,16 +149,14 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
 
     fun getLocationOfWhiteVehicle(vehicleColor: VehicleColor?): List<String> {
         val whiteColorVehicleLocation: MutableList<String> = ArrayList()
-        var lot = 0
-        for (parkingLot in parkingLots) {
+        for ((lot, parkingLot) in parkingLots.withIndex()) {
             for (slot in parkingLot.list) {
-                if (!(slot == null || slot.vehicleDetails.getColor()?.equals(vehicleColor) != true)) {
+                if (slot != null && slot.vehicleDetails.color == vehicleColor) {
                     val slot1: Int = parkingLot.list.indexOf(slot)
                     val location = "Lot$lot Slot$slot1"
                     whiteColorVehicleLocation.add(location)
                 }
             }
-            lot++
         }
         return whiteColorVehicleLocation
     }
@@ -168,7 +166,7 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
         var lot = 0
         for (parkingLot in parkingLots) {
             for (slot in parkingLot.list) {
-                if (slot != null && slot.vehicleDetails.getColor()?.equals(vehicleColor) == true &&
+                if (slot != null && slot.vehicleDetails.color == vehicleColor &&
                     slot.vehicleDetails.getCarCompany()?.equals(carCompany) == true
                 ) {
                     val slot1: Int = parkingLot.list.indexOf(slot)
@@ -196,8 +194,7 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
 
     fun getVehicleDetailOfGivenTime(minutes: Int): List<String> {
         val vehicleInformation: MutableList<String> = ArrayList()
-        var lot = 0
-        for (parkingLot in parkingLots) {
+        for ((lot, parkingLot) in parkingLots.withIndex()) {
             for (slot in parkingLot.list) {
                 if (slot != null && Duration.between(slot.time, LocalDateTime.now()).toMinutes() <= minutes) {
                     val slot1: Int = parkingLot.list.indexOf(slot)
@@ -205,28 +202,27 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
                     vehicleInformation.add(location)
                 }
             }
-            lot++
         }
         return vehicleInformation
     }
 
     fun getVehicleDetailOfGivenDriverTypeAndCarSize(driverType: DriverType?, carSize: Car?, lot: Int): List<String> {
-        var lot = lot
         val vehicleInformation: MutableList<String> = ArrayList()
-        val lot1 = 0
+        var lot1 = lot
+        val lot2 = 0
         for (parkingLot in parkingLots) {
             for (slot in parkingLot.list) {
                 if (slot != null && slot.vehicleDetails.getDriverType() == driverType &&
-                    slot.vehicleDetails.vehicleSize?.equals(carSize) == true && lot1 == lot
+                    slot.vehicleDetails.vehicleSize?.equals(carSize) == true && lot2 == lot1
                 ) {
                     val slot1: Int = parkingLot.list.indexOf(slot)
-                    val location = ("Lot" + lot + " " + "Slot" + slot1 + " " + slot.vehicleDetails.vehicle
+                    val location = ("Lot" + lot1 + " " + "Slot" + slot1 + " " + slot.vehicleDetails.vehicle
                             + " " + slot.vehicleDetails.getDriverType() + " "
                             + slot.vehicleDetails.vehicleSize)
                     vehicleInformation.add(location)
                 }
             }
-            lot++
+            lot1++
         }
         return vehicleInformation
     }

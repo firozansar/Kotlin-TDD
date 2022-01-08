@@ -6,13 +6,13 @@ class ParkingSlot(vehicleDetails: VehicleDetails, time: LocalTime, attendantName
     var vehicle: VehicleDetails
     var time: LocalTime
     var attendantName: String
-    val vehicleDetails: info.firozansari.parking.model.VehicleDetails
+    val vehicleDetails: VehicleDetails
         get() = vehicle
 
-    override fun equals(o: Any?): Boolean {
-        if (this === o) return true
-        if (o == null || javaClass != o.javaClass) return false
-        val that = o as ParkingSlot
+    override fun equals(other: Any?): Boolean {
+        if (this === other) return true
+        if (other == null || javaClass != other.javaClass) return false
+        val that = other as ParkingSlot
         return vehicle == that.vehicle &&
                 time == that.time
     }

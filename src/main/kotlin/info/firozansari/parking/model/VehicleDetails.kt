@@ -10,12 +10,7 @@ class VehicleDetails {
     private val driverType: DriverType
     private var car: Car? = null
     private var carCompany: CarCompany? = null
-
-    fun getColor(): VehicleColor? {
-        return color
-    }
-
-    private var color: VehicleColor? = null
+    var color: VehicleColor = VehicleColor.NO_COLOR
 
     constructor(vehicle: String, driverType: DriverType, car: Car?) {
         this.vehicle = vehicle
@@ -23,14 +18,14 @@ class VehicleDetails {
         this.car = car
     }
 
-    constructor(vehicle: String, driverType: DriverType, car: Car?, color: VehicleColor?) {
+    constructor(vehicle: String, driverType: DriverType, car: Car?, color: VehicleColor = VehicleColor.NO_COLOR) {
         this.vehicle = vehicle
         this.driverType = driverType
         this.car = car
         this.color = color
     }
 
-    constructor(vehicle: String, driverType: DriverType, color: VehicleColor?, carCompany: CarCompany?) {
+    constructor(vehicle: String, driverType: DriverType, color: VehicleColor = VehicleColor.NO_COLOR, carCompany: CarCompany?) {
         this.vehicle = vehicle
         this.driverType = driverType
         this.color = color
@@ -41,13 +36,13 @@ class VehicleDetails {
         return driverType
     }
 
-    val vehicleSize: info.firozansari.parking.enums.Car?
+    val vehicleSize: Car?
         get() = car
 
     fun getCarCompany(): CarCompany? {
         return carCompany
     }
 
-    val carColor: VehicleColor?
-        get() = color
+//    val carColor: VehicleColor
+//        get() = color
 }
