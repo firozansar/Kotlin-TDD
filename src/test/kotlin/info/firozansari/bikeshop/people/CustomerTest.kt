@@ -17,6 +17,7 @@ class CustomerTest {
     private lateinit var roadBike: RoadBike
     private lateinit var tyre: Tyre
     private lateinit var wheel: Wheel
+
     @BeforeEach
     fun before() {
         customer = Customer("Kat", 1000)
