@@ -6,15 +6,22 @@ import info.firozansari.store.exceptions.InvalidReferenceSyntaxException
 import info.firozansari.store.repository.BookRepository
 import info.firozansari.store.repository.ErrorCheckingBookRepository
 import info.firozansari.store.repository.InMemoryBookRepository
+import io.mockk.every
+import io.mockk.impl.annotations.MockK
+import io.mockk.junit5.MockKExtension
 import org.junit.jupiter.api.Assertions.*
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
 
-
+@ExtendWith(MockKExtension::class)
 class BookServiceImplTest {
+
+    @MockK
+    private lateinit var repository: BookRepository
 
     @Test
     @Throws(Exception::class)
-    fun retrieval_should_obtain_dvd_from_repository() {
+    fun retrieval_should_obtain_book_from_repository() {
         val existingBook: Book = createSomeBook()
         val bookService: BookService = createServiceWithExistingBook(existingBook)
         val retrievedBook: Book? = existingBook.reference?.let { bookService.retrieveBook(it) }
@@ -23,7 +30,7 @@ class BookServiceImplTest {
 
     @Test
     @Throws(Exception::class)
-    fun summary_contains_dvd_reference() {
+    fun summary_contains_book_reference() {
         val existingBook: Book = createSomeBook()
         val bookService: BookService = createServiceWithExistingBook(existingBook)
         val summary: String = existingBook.reference?.let { bookService.getBookSummary(it) } ?: ""
@@ -33,7 +40,7 @@ class BookServiceImplTest {
 
     @Test
     @Throws(Exception::class)
-    fun summary_contains_dvd_title() {
+    fun summary_contains_book_title() {
         val existingBook: Book = createSomeBook()
         val bookService: BookService = createServiceWithExistingBook(existingBook)
         val summary: String = existingBook.reference?.let { bookService.getBookSummary(it) } ?: ""
@@ -42,7 +49,7 @@ class BookServiceImplTest {
 
     @Test
     @Throws(Exception::class)
-    fun summary_contains_dvd_description() {
+    fun summary_contains_book_description() {
         val existingBook: Book = createSomeBook()
         val bookService: BookService = createServiceWithExistingBook(existingBook)
         val summary: String = existingBook.reference?.let { bookService.getBookSummary(it) } ?: ""
@@ -51,8 +58,8 @@ class BookServiceImplTest {
 
     @Test
     @Throws(java.lang.Exception::class)
-    fun dvd_is_retrieved_from_in_memory_storage() {
-        val storedBook = Book("DVD-refs", "title", "description")
+    fun book_is_retrieved_from_in_memory_storage() {
+        val storedBook = Book("Book-Ref", "title", "description")
         val storageRepository = InMemoryBookRepository()
         storageRepository.add(storedBook)
         val errorCheckingRepository: BookRepository = ErrorCheckingBookRepository(storageRepository)
@@ -62,16 +69,14 @@ class BookServiceImplTest {
         assertTrue(existingBook == storedBook)
     }
 
-    //~~~~ Test helpers
     private fun createSomeBook(): Book {
         return Book("Book-Ref", "title", "description")
     }
 
     @Throws(InvalidReferenceSyntaxException::class, BookNotFoundException::class)
     private fun createServiceWithExistingBook(existingBook: Book): BookService {
-//        val repository: BookRepository = mock(BookRepository::class.java)
-//        `when`(repository.contains(existingDvd.getReference())).thenReturn(true)
-//        `when`(repository.retrieveDvd(existingDvd.getReference())).thenReturn(existingDvd)
-        return BookServiceImpl(null) // BookServiceImpl(repository)
+        every { repository.contains(existingBook.reference) } returns true
+        every { repository.retrieveBook(existingBook.reference!!) } returns existingBook
+        return BookServiceImpl(repository)
     }
 }
