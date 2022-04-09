@@ -4,8 +4,8 @@ import info.firozansari.bikeshop.behaviours.Buy
 import info.firozansari.bikeshop.shop.Product
 
 class Customer(name: String?, var wallet: Int) : Person(name), Buy {
-    var basket: ArrayList<Product> = ArrayList()
-    val collection: ArrayList<Product?> = ArrayList()
+    var basket = ArrayList<Product>()
+    private val collection = ArrayList<Product?>()
 
     fun basketCount(): Int {
         return basket.size
@@ -27,5 +27,4 @@ class Customer(name: String?, var wallet: Int) : Person(name), Buy {
         }
         wallet -= total
     }
-
 }
