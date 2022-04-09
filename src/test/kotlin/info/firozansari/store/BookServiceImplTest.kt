@@ -59,7 +59,7 @@ class BookServiceImplTest {
     @Test
     @Throws(java.lang.Exception::class)
     fun book_is_retrieved_from_in_memory_storage() {
-        val storedBook = Book("Book-Ref", "title", "description")
+        val storedBook = Book("BOOK", "title", "description")
         val storageRepository = InMemoryBookRepository()
         storageRepository.add(storedBook)
         val errorCheckingRepository: BookRepository = ErrorCheckingBookRepository(storageRepository)

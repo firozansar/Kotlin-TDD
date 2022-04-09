@@ -1,18 +1,21 @@
 package info.firozansari.login
 
 import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class LoginManagerTest {
-    private var userRepo: HashMap<String, String>? = null
-    private var loginManager: LoginManager? = null
+    private lateinit var userRepo: HashMap<String, String>
+    private lateinit var loginManager: LoginManager
+
     @BeforeEach
     fun setUp() {
         // Arrange
         userRepo = HashMap()
-        userRepo!!["myuser"] = "mypassword"
-        loginManager = LoginManager(userRepo!!)
+        userRepo["myuser"] = "mypassword"
+        loginManager = LoginManager(userRepo)
     }
 
     @Test
@@ -23,7 +26,7 @@ class LoginManagerTest {
         val password = "mypassword"
 
         // Act
-        val result = loginManager!!.login(username, password)
+        val result = loginManager.login(username, password)
 
         // Assert
         Assertions.assertTrue(result)
@@ -31,24 +34,22 @@ class LoginManagerTest {
 
     // Assert
     @Test
-    @Throws(EmptyPasswordException::class, InvalidCredentialsException::class)
+    @Throws(InvalidCredentialsException::class)
     fun testLogin_CredentialsAreNotValid_ShouldThrowInvalidCredentialsException() {
-        // Arrange
-        val username = "invaliduser"
-        val password = "mypassword"
-
-        // Act
-        loginManager!!.login(username, password)
+        assertThrows<InvalidCredentialsException> {
+            val username = "invaliduser"
+            val password = "mypassword"
+            loginManager.login(username, password)
+        }
     }
 
     // Assert
     @Test
-    @Throws(EmptyPasswordException::class, InvalidCredentialsException::class)
+    @Throws(EmptyPasswordException::class)
     fun testLogin_PasswordIsEmpty_ShouldThrowEmptyPasswordException() {
-        // Arrange
-        val username = "invaliduser"
-
-        // Act
-        loginManager!!.login(username, "")
+        assertThrows<EmptyPasswordException> {
+            val username = "invaliduser"
+            loginManager.login(username, "")
+        }
     }
 }
