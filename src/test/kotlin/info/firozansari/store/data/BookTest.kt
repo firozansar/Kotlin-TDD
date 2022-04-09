@@ -16,6 +16,4 @@ class BookTest {
     fun createBook(ref: String, uniqueSuffix: String): Book {
         return Book(ref, "title$uniqueSuffix", "desc$uniqueSuffix")
     }
-
 }
-

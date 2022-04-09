@@ -35,5 +35,4 @@ class BikeShop(val staff: Staff, val customer: Customer, var till: Int) : Buy, S
     fun bikesCount(): Int {
         return bikes.size
     }
-
 }

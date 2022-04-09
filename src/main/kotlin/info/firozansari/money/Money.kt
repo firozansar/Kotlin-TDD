@@ -1,7 +1,6 @@
 package info.firozansari.money
 
-
-open class Money(private val amount: Int, private val currency: String): Expression {
+open class Money(private val amount: Int, private val currency: String) : Expression {
 
     override fun times(multiplier: Int): Expression {
         return Money(amount * multiplier, currency)
@@ -25,7 +24,7 @@ open class Money(private val amount: Int, private val currency: String): Express
     }
 
     override fun toString(): String = "$amount $currency"
-    
+
     companion object Factory {
         fun dollar(amount: Int): Money = Money(amount, "USD")
         fun franc(amount: Int): Money = Money(amount, "CHF")

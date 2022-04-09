@@ -14,14 +14,14 @@ class ParkingSlot(vehicleDetails: VehicleDetails, time: LocalTime, attendantName
         if (other == null || javaClass != other.javaClass) return false
         val that = other as ParkingSlot
         return vehicle == that.vehicle &&
-                time == that.time
+            time == that.time
     }
 
     override fun toString(): String {
         return "ParkingSlot{" +
-                "vehicle='" + vehicle + '\'' +
-                ", time=" + time +
-                '}'
+            "vehicle='" + vehicle + '\'' +
+            ", time=" + time +
+            '}'
     }
 
     init {

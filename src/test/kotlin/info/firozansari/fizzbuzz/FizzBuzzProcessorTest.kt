@@ -3,7 +3,6 @@ package info.firozansari.fizzbuzz
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
-
 class FizzBuzzProcessorTest {
     @Test
     fun FizzBuzzNormalNumbers() {

@@ -25,7 +25,12 @@ class VehicleDetails {
         this.color = color
     }
 
-    constructor(vehicle: String, driverType: DriverType, color: VehicleColor = VehicleColor.NO_COLOR, carCompany: CarCompany?) {
+    constructor(
+        vehicle: String,
+        driverType: DriverType,
+        color: VehicleColor = VehicleColor.NO_COLOR,
+        carCompany: CarCompany?
+    ) {
         this.vehicle = vehicle
         this.driverType = driverType
         this.color = color

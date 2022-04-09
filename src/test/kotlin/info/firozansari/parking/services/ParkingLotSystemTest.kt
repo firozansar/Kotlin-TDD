@@ -1,18 +1,18 @@
 package info.firozansari.parking.services
 
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import info.firozansari.parking.model.VehicleDetails
-import info.firozansari.parking.enums.DriverType
 import info.firozansari.parking.enums.Car
-import org.junit.jupiter.api.Assertions
+import info.firozansari.parking.enums.CarCompany
+import info.firozansari.parking.enums.DriverType
+import info.firozansari.parking.enums.VehicleColor
 import info.firozansari.parking.exception.ParkingLotException
+import info.firozansari.parking.model.VehicleDetails
 import info.firozansari.parking.observer.AirportSecurity
 import info.firozansari.parking.observer.ParkingLotOwner
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import java.time.LocalTime
-import info.firozansari.parking.enums.VehicleColor
 import java.util.Arrays
-import info.firozansari.parking.enums.CarCompany
 
 class ParkingLotSystemTest {
     var parkingLotSystem: ParkingLotSystem? = null
@@ -21,7 +21,7 @@ class ParkingLotSystemTest {
         parkingLotSystem = ParkingLotSystem(3, 1)
     }
 
-    //UC1 Park the vehicle
+    // UC1 Park the vehicle
     @Test
     fun givenVehicle_WhenParked_ShouldReturnTrue() {
         try {
@@ -29,7 +29,8 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val isParked = parkingLotSystem!!.isVehicleParked("vehicle")
             Assertions.assertTrue(isParked)
@@ -45,13 +46,15 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
         } catch (e: ParkingLotException) {
             println(e.message)
@@ -59,7 +62,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC2 unPark the vehicle
+    // UC2 unPark the vehicle
     @Test
     fun givenVehicle_WhenUnParked_ShouldReturnTrue() {
         try {
@@ -67,7 +70,8 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val isUnParked = parkingLotSystem!!.unPark("vehicle")
             Assertions.assertTrue(isUnParked)
@@ -82,7 +86,8 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val isUnParked = parkingLotSystem!!.unPark("vehicle1")
             Assertions.assertFalse(isUnParked)
@@ -91,7 +96,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC3
+    // UC3
     @Test
     fun givenVehicleParked_WhenLotFull_ShouldThrowException() {
         try {
@@ -99,25 +104,29 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle4", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
         } catch (e: ParkingLotException) {
             println(e.message)
@@ -125,7 +134,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC4
+    // UC4
     @Test
     fun givenParkingLot_WhenFull_ShouldRedirectSecurityStaff() {
         val airportSecurity = AirportSecurity()
@@ -135,25 +144,29 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle4", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
         } catch (e: ParkingLotException) {
             val capacityFull = airportSecurity.isCapacityFull
@@ -161,7 +174,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC4
+    // UC4
     @Test
     fun givenParkingLot_WhenNotFull_ShouldNotBeRedirectSecurityStaff() {
         val airportSecurity = AirportSecurity()
@@ -171,25 +184,29 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle4", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
         } catch (e: ParkingLotException) {
             parkingLotSystem!!.unPark("vehicle3")
@@ -207,25 +224,29 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle4", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
         } catch (e: ParkingLotException) {
             val capacityFull = parkingLotOwner.isCapacityFull
@@ -242,25 +263,29 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle4", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
         } catch (e: ParkingLotException) {
             parkingLotSystem!!.unPark("vehicle2")
@@ -269,7 +294,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC6
+    // UC6
     @Test
     fun givenVehicle_ShouldPark_OnAvailableSlot() {
         try {
@@ -277,20 +302,22 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem!!.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
         } catch (e: ParkingLotException) {
             e.printStackTrace()
         }
     }
 
-    //UC7
+    // UC7
     @Test
     fun givenVehicle_WhenParkedShouldFindTheLocation() {
         try {
@@ -298,7 +325,8 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val vehicleLocation = parkingLotSystem!!.findVehicleLocation("vehicle")
             Assertions.assertEquals(0, vehicleLocation)
@@ -317,7 +345,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC8
+    // UC8
     @Test
     fun givenVehicle_WhenParked_ShouldReturnTime() {
         try {
@@ -325,7 +353,8 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val parkTime = parkingLotSystem!!.getParkTime("vehicle")
             Assertions.assertEquals(parkTime, LocalTime.now().withNano(0))
@@ -341,7 +370,8 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val parkTime = parkingLotSystem!!.getParkTime("vehicle2")
             Assertions.assertEquals(parkTime, LocalTime.now().withNano(0))
@@ -350,7 +380,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC9
+    // UC9
     @Test
     fun givenVehicle_WhenParkedAndUnParkedInLot_ShouldEvenlyDistributed() {
         val parkingLotSystem = ParkingLotSystem(3, 3)
@@ -359,43 +389,50 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle4", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle5", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle6", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle7", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.unPark("vehicle7")
             val position = parkingLotSystem.vehiclePosition("vehicle3")
@@ -405,7 +442,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC10
+    // UC10
     @Test
     fun givenVehicleToPark_WhenDriverIsHandicap_ShouldParkVehicleAtNearestSpot() {
         val parkingLotSystem = ParkingLotSystem(3, 3)
@@ -414,63 +451,73 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.unPark("vehicle2")
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle4", DriverType.HANDICAP_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle5", DriverType.HANDICAP_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle6", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle7", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle8", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle9", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.unPark("vehicle7")
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicleH", DriverType.HANDICAP_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val position = parkingLotSystem.vehiclePosition("vehicle4")
             Assertions.assertEquals("Lot0 Slot1", position)
@@ -479,7 +526,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC11
+    // UC11
     @Test
     fun givenVehicleToPark_WhenDriverIsHandicap_AndCarIsLarge_ShouldReturnExpectedSlotNumbers() {
         val parkingLotSystem = ParkingLotSystem(3, 3)
@@ -488,31 +535,36 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle4", DriverType.HANDICAP_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle5", DriverType.HANDICAP_DRIVER,
                     Car.LARGE_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val position = parkingLotSystem.vehiclePosition("vehicle5")
             Assertions.assertEquals("Lot1 Slot1", position)
@@ -529,37 +581,43 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle4", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle5", DriverType.HANDICAP_DRIVER,
                     Car.LARGE_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle6", DriverType.HANDICAP_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val position = parkingLotSystem.vehiclePosition("vehicle6")
             Assertions.assertEquals("Lot0 Slot2", position)
@@ -576,37 +634,43 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle4", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle5", DriverType.NORMAL_DRIVER,
                     Car.LARGE_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle6", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val position = parkingLotSystem.vehiclePosition("vehicle5")
             Assertions.assertEquals("Lot1 Slot1", position)
@@ -615,7 +679,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC12
+    // UC12
     @Test
     fun givenVehicleToPark_WhenHaveWhiteColor_ShouldReturnExpectedSlotNumbers() {
         val parkingLotSystem = ParkingLotSystem(3, 3)
@@ -624,25 +688,29 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR, VehicleColor.NO_COLOR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR, VehicleColor.WHITE
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle3", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR, VehicleColor.NO_COLOR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle4", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR, VehicleColor.WHITE
-                ), "AA"
+                ),
+                "AA"
             )
             val whiteColorVehicle = parkingLotSystem.getLocationOfWhiteVehicle(VehicleColor.WHITE)
             Assertions.assertEquals(Arrays.asList("Lot0 Slot1", "Lot1 Slot0"), whiteColorVehicle)
@@ -651,7 +719,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC13
+    // UC13
     @Test
     fun givenToyotaCar_WhenHaveBlueColor_ShouldReturnExpectedLocation() {
         val parkingLotSystem = ParkingLotSystem(3, 3)
@@ -660,25 +728,29 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "MH-65-KS-8765", DriverType.NORMAL_DRIVER,
                     VehicleColor.NO_COLOR, CarCompany.NISSAN
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "MH-68-KS-8776", DriverType.NORMAL_DRIVER,
                     VehicleColor.BLUE, CarCompany.TOYOTA
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "MH-65-KS-8754", DriverType.NORMAL_DRIVER,
                     VehicleColor.WHITE, CarCompany.NISSAN
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "MH-65-KS-8654", DriverType.NORMAL_DRIVER,
                     VehicleColor.BLUE, CarCompany.NISSAN
-                ), "AA"
+                ),
+                "AA"
             )
             val carDetail = parkingLotSystem.getLocationOfVehicleByGivingColorAndBrand(
                 VehicleColor.BLUE,
@@ -690,7 +762,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC14
+    // UC14
     @Test
     fun givenBMWCar_WhenParked_ShouldReturnTotalCountOFBMWCar() {
         val parkingLotSystem = ParkingLotSystem(3, 3)
@@ -699,25 +771,29 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "MH-65-KS-8765", DriverType.NORMAL_DRIVER,
                     VehicleColor.NO_COLOR, CarCompany.NISSAN
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "MH-68-KS-8776", DriverType.NORMAL_DRIVER,
                     VehicleColor.BLUE, CarCompany.BMW
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "MH-65-KS-8754", DriverType.NORMAL_DRIVER,
                     VehicleColor.WHITE, CarCompany.BMW
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "MH-65-KS-8654", DriverType.NORMAL_DRIVER,
                     VehicleColor.BLUE, CarCompany.NISSAN
-                ), "AA"
+                ),
+                "AA"
             )
             val carCount = parkingLotSystem.getCountForOneBrandCar(CarCompany.BMW)
             Assertions.assertEquals(2, carCount)
@@ -726,7 +802,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC15
+    // UC15
     @Test
     fun givenVehiclesParked_WhenFindVehicleParkedInLast30Minutes_ShouldReturnVehicleSlotNumber() {
         val parkingLotSystem = ParkingLotSystem(3, 3)
@@ -735,13 +811,15 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "MH-65-KS-8765", DriverType.NORMAL_DRIVER,
                     VehicleColor.NO_COLOR, CarCompany.NISSAN
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "MH-68-KS-8776", DriverType.NORMAL_DRIVER,
                     VehicleColor.BLUE, CarCompany.BMW
-                ), "AA"
+                ),
+                "AA"
             )
             val vehicleDetail = parkingLotSystem.getVehicleDetailOfGivenTime(30)
             Assertions.assertEquals(Arrays.asList("Lot0 Slot0", "Lot1 Slot0"), vehicleDetail)
@@ -750,7 +828,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC16
+    // UC16
     @Test
     fun givenParkingLots_WhenFindVehiclesAccordinglySmallVehicleAndHandicapDriverType_ShouldReturnVehicleDetails() {
         val parkingLotSystem = ParkingLotSystem(3, 3)
@@ -759,13 +837,15 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "MH-65-KS-8765", DriverType.HANDICAP_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "MH-75-KS-7338", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val vehicleDetail = parkingLotSystem.getVehicleDetailOfGivenDriverTypeAndCarSize(
                 DriverType.HANDICAP_DRIVER,
@@ -778,7 +858,7 @@ class ParkingLotSystemTest {
         }
     }
 
-    //UC17
+    // UC17
     @Test
     fun givenParingLot_WhenHaveParkedCars_ShouldReturnTotalVehicle() {
         val parkingLotSystem = ParkingLotSystem(3, 3)
@@ -787,25 +867,29 @@ class ParkingLotSystemTest {
                 VehicleDetails(
                     "MH-65-KS-8765", DriverType.HANDICAP_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "MH-85-KS-7638", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "MH-75-KS-7658", DriverType.HANDICAP_DRIVER,
                     Car.LARGE_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "MH-65-KS-7438", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
-                ), "AA"
+                ),
+                "AA"
             )
             val carCount = parkingLotSystem.carCount()
             Assertions.assertEquals(4, carCount)

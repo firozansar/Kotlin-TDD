@@ -16,7 +16,7 @@ class InMemoryBookRepository : BookRepository {
         return hash[reference]
     }
 
-    //~~~ Private helpers
+    // ~~~ Private helpers
     protected fun getBookKey(book: Book): String? {
         return book.reference
     }

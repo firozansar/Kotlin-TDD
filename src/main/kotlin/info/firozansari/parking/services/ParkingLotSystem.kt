@@ -170,8 +170,10 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
                     slot.vehicleDetails.getCarCompany()?.equals(carCompany) == true
                 ) {
                     val slot1: Int = parkingLot.list.indexOf(slot)
-                    val information = ("Lot" + lot + " " + "Slot" + slot1 + " " + slot.vehicleDetails.vehicle
-                            + " " + slot.attendantName)
+                    val information = (
+                        "Lot" + lot + " " + "Slot" + slot1 + " " + slot.vehicleDetails.vehicle +
+                            " " + slot.attendantName
+                        )
                     VehicleInformation.add(information)
                 }
             }
@@ -216,9 +218,11 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
                     slot.vehicleDetails.vehicleSize?.equals(carSize) == true && lot2 == lot1
                 ) {
                     val slot1: Int = parkingLot.list.indexOf(slot)
-                    val location = ("Lot" + lot1 + " " + "Slot" + slot1 + " " + slot.vehicleDetails.vehicle
-                            + " " + slot.vehicleDetails.getDriverType() + " "
-                            + slot.vehicleDetails.vehicleSize)
+                    val location = (
+                        "Lot" + lot1 + " " + "Slot" + slot1 + " " + slot.vehicleDetails.vehicle +
+                            " " + slot.vehicleDetails.getDriverType() + " " +
+                            slot.vehicleDetails.vehicleSize
+                        )
                     vehicleInformation.add(location)
                 }
             }
@@ -242,7 +246,8 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
         parkingLots = ArrayList()
         IntStream.range(0, numberOfLots).forEachOrdered { slots: Int ->
             parkingLots.add(
-                slots, ParkingLot(
+                slots,
+                ParkingLot(
                     lotSize
                 )
             )

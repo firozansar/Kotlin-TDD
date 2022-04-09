@@ -5,7 +5,6 @@ import info.firozansari.bikeshop.shop.components.Crankset
 import info.firozansari.bikeshop.shop.components.Frame
 import info.firozansari.bikeshop.shop.components.Tyre
 import info.firozansari.bikeshop.shop.components.Wheel
-import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test

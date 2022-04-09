@@ -11,15 +11,13 @@ import org.junit.jupiter.api.extension.ExtendWith
 class PaymentBrokerTest {
 
     @MockK
-    private lateinit var  wallet: WalletInterface
+    private lateinit var wallet: WalletInterface
 
     @MockK
-    private lateinit var  provider: PaymentProviderInterface
+    private lateinit var provider: PaymentProviderInterface
 
     @MockK
     private lateinit var broker: PaymentBroker
-
-
 
     @Test
     @Throws(InsufficientFundsException::class, ProviderNotAvailableException::class)

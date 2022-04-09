@@ -1,17 +1,52 @@
+import io.gitlab.arturbosch.detekt.DetektCreateBaselineTask
+
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.6.10'
+    id 'io.gitlab.arturbosch.detekt' version '1.19.0'
 }
 
-group 'org.example'
-version '1.0-SNAPSHOT'
+group 'info.firozansari'
+version '1.0.0'
 
 repositories {
     mavenCentral()
 }
 
+tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile) {
+    kotlinOptions {
+        freeCompilerArgs = ["-Xopt-in=kotlin.Experimental"]
+        jvmTarget = "11"
+    }
+}
+
+detekt {
+    buildUponDefaultConfig = true
+    allRules = true
+    autoCorrect = true
+    config = files("$projectDir/detekt/config.yml")
+    baseline = file("$projectDir/detekt/baseline.xml")
+}
+
+task detektProjectBaseline(type: DetektCreateBaselineTask) {
+    description = "Overrides current baseline."
+    ignoreFailures.set(true)
+    parallel.set(true)
+    buildUponDefaultConfig.set(true)
+    setSource(files(
+            "$rootDir/src/main",
+            "$rootDir/src/test"
+    ))
+    config.setFrom(files("$rootDir/detekt/config.yml"))
+    baseline.set(file("$rootDir/detekt/baseline.xml"))
+    include("**/*.kt")
+    include("**/*.kts")
+}
+
 dependencies {
+    detekt "io.gitlab.arturbosch.detekt:detekt-cli:$detektVersion"
+    detektPlugins "io.gitlab.arturbosch.detekt:detekt-formatting:$detektVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
-    testImplementation "org.junit.jupiter:junit-jupiter-api:5.8.2"
-    testImplementation "org.junit.jupiter:junit-jupiter-engine:5.8.2"
-    testImplementation "io.mockk:mockk:1.12.2"
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junitEngineVersion"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:$junitEngineVersion"
+    testImplementation "io.mockk:mockk:1.12.3"
 }

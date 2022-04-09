@@ -1,8 +1,8 @@
 package info.firozansari.fizzbuzz
 
-import kotlin.jvm.JvmStatic
-import kotlin.jvm.JvmOverloads
 import java.util.ArrayList
+import kotlin.jvm.JvmOverloads
+import kotlin.jvm.JvmStatic
 
 object FizzBuzzProcessor {
     private const val OUTPUT_FORMAT = "%32s"
@@ -28,7 +28,7 @@ object FizzBuzzProcessor {
         println("Before unsigned right shift : " + Integer.toBinaryString(numb))
         println("number in decimal format : $numb")
         numb = numb ushr 1
-        //shift 1 bit using right shift without sign
+        // shift 1 bit using right shift without sign
         println("After unsigned right shift : " + Integer.toBinaryString(numb))
         println("number in decimal format : $numb")
         val STRING_FORMAT = "%-10s = %s"

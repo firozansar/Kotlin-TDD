@@ -1,15 +1,15 @@
 package info.firozansari.bikeshop.shop
 
-import info.firozansari.bikeshop.shop.bikes.RoadBike
-import info.firozansari.bikeshop.shop.components.Crankset
-import info.firozansari.bikeshop.shop.components.Tyre
-import info.firozansari.bikeshop.shop.components.Wheel
-import org.junit.jupiter.api.BeforeEach
-import org.junit.jupiter.api.Test
-import org.junit.jupiter.api.Assertions
 import info.firozansari.bikeshop.people.Customer
 import info.firozansari.bikeshop.people.Staff
+import info.firozansari.bikeshop.shop.bikes.RoadBike
+import info.firozansari.bikeshop.shop.components.Crankset
 import info.firozansari.bikeshop.shop.components.Frame
+import info.firozansari.bikeshop.shop.components.Tyre
+import info.firozansari.bikeshop.shop.components.Wheel
+import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class BikeShopTest {
     private lateinit var customer: Customer
