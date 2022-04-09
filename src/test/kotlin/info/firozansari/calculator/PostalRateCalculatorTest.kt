@@ -1,5 +1,5 @@
 // package info.firozansari.calculator
-//
+// Commented out this file because of Detekt issue
 // import info.firozansari.calculator.PostalRateCalculator.main
 // import java.io.ByteArrayOutputStream
 // import java.io.PrintStream
