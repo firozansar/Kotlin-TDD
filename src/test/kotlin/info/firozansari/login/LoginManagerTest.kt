@@ -1,7 +1,6 @@
 package info.firozansari.login
 
-import org.junit.jupiter.api.Assertions
-import org.junit.jupiter.api.Assertions.assertEquals
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
@@ -29,7 +28,7 @@ class LoginManagerTest {
         val result = loginManager.login(username, password)
 
         // Assert
-        Assertions.assertTrue(result)
+        assertTrue(result)
     }
 
     // Assert
