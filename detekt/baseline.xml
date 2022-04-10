@@ -41,6 +41,7 @@
     <ID>MaximumLineLength:info.firozansari.parking.services.ParkingLotSystem.kt:42</ID>
     <ID>NestedBlockDepth:ParkingLotSystem.kt$ParkingLotSystem$fun getParkingLotAccordingToLargeCar(driverType: DriverType): ParkingLot</ID>
     <ID>NestedBlockDepth:ParkingLotSystem.kt$ParkingLotSystem$fun unPark(vehicle: String?): Boolean</ID>
+    <ID>NoWildcardImports:info.firozansari.calculator.PostalRateCalculatorTest.kt:5</ID>
     <ID>NoWildcardImports:info.firozansari.money.MoneyTest.kt:3</ID>
     <ID>NoWildcardImports:info.firozansari.store.BookServiceImplTest.kt:12</ID>
     <ID>NoWildcardImports:info.firozansari.store.data.BookTest.kt:3</ID>
@@ -69,8 +70,8 @@
     <ID>TooManyFunctions:ParkingLotSystem.kt$ParkingLotSystem</ID>
     <ID>UnnecessaryAbstractClass:Person.kt$Person</ID>
     <ID>UnnecessaryAbstractClass:Product.kt$Product</ID>
+    <ID>UnusedPrivateMember:FizzBuzzProcessor.kt$FizzBuzzProcessor$args: List&lt;String&gt;</ID>
     <ID>UnusedPrivateMember:Frame.kt$Frame$private val colour: String</ID>
     <ID>UnusedPrivateMember:ParkingLot.kt$ParkingLot$slots</ID>
-    <ID>VariableNaming:ParkingLotSystem.kt$ParkingLotSystem$val VehicleInformation: MutableList&lt;String&gt; = ArrayList()</ID>
   </CurrentIssues>
 </SmellBaseline>
