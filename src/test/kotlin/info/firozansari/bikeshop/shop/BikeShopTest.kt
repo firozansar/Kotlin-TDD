@@ -22,7 +22,7 @@ class BikeShopTest {
     private lateinit var bikeShop: BikeShop
 
     @BeforeEach
-    fun before() {
+    fun setup() {
         customer = Customer("Kat", 1000)
         staff = Staff("Kyle")
         bikeShop = BikeShop(staff, customer, 10000)

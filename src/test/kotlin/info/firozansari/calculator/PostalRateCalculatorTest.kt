@@ -19,7 +19,7 @@ class PostalRateCalculatorTest {
 
     @BeforeEach
     @Throws(Exception::class)
-    fun setUp() {
+    fun setup() {
         specialOut = ByteArrayOutputStream()
         ps = PrintStream(specialOut)
         console = System.out
