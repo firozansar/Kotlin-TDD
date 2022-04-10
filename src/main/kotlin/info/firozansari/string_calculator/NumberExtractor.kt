@@ -4,7 +4,6 @@ import java.util.regex.Matcher
 import java.util.regex.Pattern
 import kotlin.collections.ArrayList
 
-
 /**
  * Class created to work as a number extractor. This class will receive a string with some numbers inside and will
  * extract it in a number collection.

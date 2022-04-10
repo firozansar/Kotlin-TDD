@@ -1,5 +1,6 @@
 <?xml version="1.0" ?>
 <SmellBaseline>
+  <ManuallySuppressedIssues></ManuallySuppressedIssues>
   <CurrentIssues>
     <ID>ComplexCondition:ParkingLotSystem.kt$ParkingLotSystem$slot != null &amp;&amp; slot.vehicleDetails.getDriverType() == driverType &amp;&amp; slot.vehicleDetails.vehicleSize?.equals(carSize) == true &amp;&amp; lot2 == lot1</ID>
     <ID>ComplexCondition:PostalRateCalculator.kt$PostalRateCalculator$height &lt; 0.0 || weight &lt; 0.0 || width &lt; 0.0 || length &lt; 0.0</ID>
@@ -36,15 +37,27 @@
     <ID>MagicNumber:PostalRateCalculator.kt$PostalRateCalculator$6000</ID>
     <ID>MagicNumber:PostalRateCalculator.kt$PostalRateCalculator$7</ID>
     <ID>MaxLineLength:ParkingLotSystem.kt$ParkingLotSystem$if (vehicleDetails.vehicleSize === Car.LARGE_CAR) return getParkingLotAccordingToLargeCar(vehicleDetails.getDriverType())</ID>
+    <ID>MaxLineLength:StringCalculator.kt$StringCalculator$*</ID>
     <ID>MaximumLineLength:info.firozansari.parking.services.ParkingLotSystem.kt:42</ID>
     <ID>NestedBlockDepth:ParkingLotSystem.kt$ParkingLotSystem$fun getParkingLotAccordingToLargeCar(driverType: DriverType): ParkingLot</ID>
     <ID>NestedBlockDepth:ParkingLotSystem.kt$ParkingLotSystem$fun unPark(vehicle: String?): Boolean</ID>
     <ID>NoWildcardImports:info.firozansari.money.MoneyTest.kt:3</ID>
     <ID>NoWildcardImports:info.firozansari.store.BookServiceImplTest.kt:12</ID>
     <ID>NoWildcardImports:info.firozansari.store.data.BookTest.kt:3</ID>
+    <ID>NoWildcardImports:info.firozansari.string_calculator.NumberValidator.kt:3</ID>
+    <ID>NoWildcardImports:info.firozansari.string_calculator.StringCalculator.kt:3</ID>
+    <ID>NoWildcardImports:info.firozansari.string_calculator.StringCalculatorTest.kt:4</ID>
     <ID>PackageNaming:DeliveryType.kt$package info.firozansari.parcel_delivery</ID>
+    <ID>PackageNaming:ForbiddenNumberSearcher.kt$package info.firozansari.string_calculator</ID>
+    <ID>PackageNaming:LessThanValidationRule.kt$package info.firozansari.string_calculator</ID>
+    <ID>PackageNaming:NegativeNumberSearcher.kt$package info.firozansari.string_calculator</ID>
+    <ID>PackageNaming:NegativeNumbersNotSupportedException.kt$package info.firozansari.string_calculator</ID>
+    <ID>PackageNaming:NumberExtractor.kt$package info.firozansari.string_calculator</ID>
+    <ID>PackageNaming:NumberValidator.kt$package info.firozansari.string_calculator</ID>
     <ID>PackageNaming:PackageType.kt$package info.firozansari.parcel_delivery</ID>
     <ID>PackageNaming:ParcelInfo.kt$package info.firozansari.parcel_delivery</ID>
+    <ID>PackageNaming:StringCalculator.kt$package info.firozansari.string_calculator</ID>
+    <ID>PackageNaming:ValidatorException.kt$package info.firozansari.string_calculator</ID>
     <ID>PrintStackTrace:ParkingLotSystemTest.kt$ParkingLotSystemTest$e</ID>
     <ID>ProtectedMemberInFinalClass:InMemoryBookRepository.kt$InMemoryBookRepository$// ~~~ Private helpers protected fun getBookKey(book: Book): String?</ID>
     <ID>ReturnCount:FizzBuzzProcessor.kt$FizzBuzzProcessor$fun convert(fizzBuzz: Int): String</ID>

@@ -31,34 +31,34 @@ class StringCalculatorTest {
     @Test
     @Throws(ValidatorException::class)
     fun shouldReturnTheSameValueIfTheArgumentContainisOnlyOneNumberWithMoreThanOneDigit() {
-        val result = stringCalculator.add(ONE_NUMBER_STRING);
+        val result = stringCalculator.add(ONE_NUMBER_STRING)
 
-        val expectedResult = Integer.parseInt(ONE_NUMBER_STRING);
-        assertEquals(expectedResult, result);
+        val expectedResult = Integer.parseInt(ONE_NUMBER_STRING)
+        assertEquals(expectedResult, result)
     }
 
     @Test
     @Throws(ValidatorException::class)
     fun shouldReturnTheSumOfAnUnknownAmountOfNumbers() {
-        val result = stringCalculator.add(NUMBERS_STRING_SUM_ELEVEN);
+        val result = stringCalculator.add(NUMBERS_STRING_SUM_ELEVEN)
 
-        assertEquals(11, result);
+        assertEquals(11, result)
     }
 
     @Test
     @Throws(ValidatorException::class)
     fun shouldReturnTheSumOfAnUnknownAmountOfNumbersSeparatedWithNewLineCharacters() {
-        val result = stringCalculator.add(NUMBERS_STRING_SUM_SIX_SEPARATOR_NEW_LINE);
+        val result = stringCalculator.add(NUMBERS_STRING_SUM_SIX_SEPARATOR_NEW_LINE)
 
-        assertEquals(6, result);
+        assertEquals(6, result)
     }
 
     @Test
     @Throws(ValidatorException::class)
     fun shouldReturnTheSumOfAnUnknownAmoutOfNumbersSeparatedWithDifferentDelimiters() {
-        val result = stringCalculator.add(NUMBERS_STRING_SUM_SEVEN_DIFFERENT_SEPARATORS);
+        val result = stringCalculator.add(NUMBERS_STRING_SUM_SEVEN_DIFFERENT_SEPARATORS)
 
-        assertEquals(7, result);
+        assertEquals(7, result)
     }
 
     @Test
@@ -66,7 +66,7 @@ class StringCalculatorTest {
     fun shouldThrowNegativeNumbersNotSupportedException() {
         assertThrows<NegativeNumbersNotSupportedException> {
             stringCalculator.add(NUMBERS_STRING_WITH_NEGATIVE_VALUES)
-       }
+        }
     }
 
     @Test
