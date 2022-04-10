@@ -10,6 +10,6 @@ class NegativeNumbersNotSupportedException(private val negativeNumbers: List<Int
         get() = exceptionName + negativeNumbers.toString()
 
     companion object {
-        const val exceptionName = "NegativeNumbersNotSupportedException"
+        const val exceptionName = "Negative numbers not supported exception:"
     }
 }

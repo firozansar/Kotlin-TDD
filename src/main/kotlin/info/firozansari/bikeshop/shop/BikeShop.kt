@@ -8,8 +8,8 @@ import info.firozansari.bikeshop.shop.bikes.Bike
 import info.firozansari.bikeshop.shop.components.BikePart
 
 class BikeShop(val staff: Staff, val customer: Customer, var till: Int) : Buy, Sell {
-    var bikes = ArrayList<Product>()
-    var stock = ArrayList<Product>()
+    private val bikes = mutableListOf<Product>()
+    private val stock = mutableListOf<Product>()
     override fun buy(product: Product?) {
         if (product is Bike) {
             bikes.add(product)

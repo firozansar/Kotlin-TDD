@@ -7,11 +7,10 @@ import info.firozansari.bikeshop.shop.components.Frame
 import info.firozansari.bikeshop.shop.components.Tyre
 import info.firozansari.bikeshop.shop.components.Wheel
 
-abstract class Bike(val frame: Frame, crankset: Crankset, price: Int, type: String) : Product(price), Cycle {
-    var tyres: ArrayList<Tyre> = ArrayList()
-    var wheels: ArrayList<Wheel>
-    private val crankset: Crankset
-    private val type: String
+abstract class Bike(val frame: Frame, val crankset: Crankset, price: Int, val type: String) : Product(price), Cycle {
+    private var tyres = mutableListOf<Tyre>()
+    private var wheels = mutableListOf<Wheel>()
+
     private fun wheelsCount(): Int {
         return wheels.size
     }
@@ -51,11 +50,5 @@ abstract class Bike(val frame: Frame, crankset: Crankset, price: Int, type: Stri
 
     override fun cycle(): String {
         return "I cycle on $type bike, I am free!"
-    }
-
-    init {
-        this.crankset = crankset
-        wheels = ArrayList()
-        this.type = type
     }
 }

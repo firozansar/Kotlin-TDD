@@ -1,13 +1,12 @@
 package info.firozansari.fizzbuzz
 
-import java.util.ArrayList
 import kotlin.jvm.JvmOverloads
 import kotlin.jvm.JvmStatic
 
 object FizzBuzzProcessor {
     private const val OUTPUT_FORMAT = "%32s"
     @JvmStatic
-    fun main(args: Array<String>) {
+    fun main(args: List<String>) {
         // Using right shift operator with negative num in Java
         var num = -2
         println(num)

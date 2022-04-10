@@ -2,7 +2,6 @@ package info.firozansari.string_calculator
 
 import java.util.regex.Matcher
 import java.util.regex.Pattern
-import kotlin.collections.ArrayList
 
 /**
  * Class created to work as a number extractor. This class will receive a string with some numbers inside and will
@@ -16,7 +15,7 @@ internal class NumberExtractor {
      * @return a List<Integer> with the numbers found</Integer>
      */
     fun extract(stringToAnalyze: String): List<Int> {
-        var result: List<Int> = ArrayList()
+        var result = listOf<Int>()
         if (!stringToAnalyze.isEmpty()) {
             result = getNumbersUsingRegEx(stringToAnalyze)
         }

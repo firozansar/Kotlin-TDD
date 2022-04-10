@@ -1,7 +1,5 @@
 package info.firozansari.string_calculator
 
-import kotlin.collections.ArrayList
-
 /**
  * Validator created to detect negative numbers. If this validator detects a negative number will throw a
  * NegativeNumbersNotSupportedException.
@@ -16,7 +14,7 @@ internal class NegativeNumberSearcher : ForbiddenNumberSearcher {
     }
 
     private fun getNegativeNumbers(numbers: List<Int>): List<Int> {
-        val negativeNumbers: MutableList<Int> = ArrayList<Int>()
+        val negativeNumbers = mutableListOf<Int>()
         for (num in numbers) {
             if (num < 0) {
                 negativeNumbers.add(num)

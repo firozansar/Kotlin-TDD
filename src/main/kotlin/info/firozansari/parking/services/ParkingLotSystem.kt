@@ -14,8 +14,8 @@ import java.time.LocalTime
 import java.util.stream.IntStream
 
 class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
-    private val observers: MutableList<ParkingLotObserver>
-    private val parkingLots: List<ParkingLot>
+    private val observers = mutableListOf<ParkingLotObserver>()
+    private val parkingLots = mutableListOf<ParkingLot>()
     var numberOfLots: Int
     fun register(parkingObservers: ParkingLotObserver) {
         observers.add(parkingObservers)
@@ -148,7 +148,7 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
     }
 
     fun getLocationOfWhiteVehicle(vehicleColor: VehicleColor?): List<String> {
-        val whiteColorVehicleLocation: MutableList<String> = ArrayList()
+        val whiteColorVehicleLocation = mutableListOf<String>()
         for ((lot, parkingLot) in parkingLots.withIndex()) {
             for (slot in parkingLot.list) {
                 if (slot != null && slot.vehicleDetails.color == vehicleColor) {
@@ -162,7 +162,7 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
     }
 
     fun getLocationOfVehicleByGivingColorAndBrand(vehicleColor: VehicleColor?, carCompany: CarCompany?): List<String> {
-        val VehicleInformation: MutableList<String> = ArrayList()
+        val vehicleInformation = mutableListOf<String>()
         var lot = 0
         for (parkingLot in parkingLots) {
             for (slot in parkingLot.list) {
@@ -174,12 +174,12 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
                         "Lot" + lot + " " + "Slot" + slot1 + " " + slot.vehicleDetails.vehicle +
                             " " + slot.attendantName
                         )
-                    VehicleInformation.add(information)
+                    vehicleInformation.add(information)
                 }
             }
             lot++
         }
-        return VehicleInformation
+        return vehicleInformation
     }
 
     fun getCountForOneBrandCar(carCompany: CarCompany?): Int {
@@ -195,7 +195,7 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
     }
 
     fun getVehicleDetailOfGivenTime(minutes: Int): List<String> {
-        val vehicleInformation: MutableList<String> = ArrayList()
+        val vehicleInformation = mutableListOf<String>()
         for ((lot, parkingLot) in parkingLots.withIndex()) {
             for (slot in parkingLot.list) {
                 if (slot != null && Duration.between(slot.time, LocalDateTime.now()).toMinutes() <= minutes) {
@@ -209,7 +209,7 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
     }
 
     fun getVehicleDetailOfGivenDriverTypeAndCarSize(driverType: DriverType?, carSize: Car?, lot: Int): List<String> {
-        val vehicleInformation: MutableList<String> = ArrayList()
+        val vehicleInformation = mutableListOf<String>()
         var lot1 = lot
         val lot2 = 0
         for (parkingLot in parkingLots) {
@@ -242,8 +242,6 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
     }
 
     init {
-        observers = ArrayList()
-        parkingLots = ArrayList()
         IntStream.range(0, numberOfLots).forEachOrdered { slots: Int ->
             parkingLots.add(
                 slots,
