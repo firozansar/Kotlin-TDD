@@ -1,4 +1,4 @@
-package info.firozansari.parcel_delivery
+package info.firozansari.parceldelivery
 
 class ParcelInfo(
     var originLocation: String,

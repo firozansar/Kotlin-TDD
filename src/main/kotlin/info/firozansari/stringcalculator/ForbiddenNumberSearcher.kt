@@ -1,4 +1,4 @@
-package info.firozansari.string_calculator
+package info.firozansari.stringcalculator
 
 /**
  * Interface created to represent a validator that evaluates a list of integers.

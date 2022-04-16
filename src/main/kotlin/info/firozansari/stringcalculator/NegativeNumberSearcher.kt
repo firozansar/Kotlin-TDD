@@ -1,4 +1,4 @@
-package info.firozansari.string_calculator
+package info.firozansari.stringcalculator
 
 /**
  * Validator created to detect negative numbers. If this validator detects a negative number will throw a

@@ -1,6 +1,6 @@
-package info.firozansari.string_calculator
+package info.firozansari.stringcalculator
 
-import info.firozansari.string_calculator.NumberValidator.ValidationRule
+import info.firozansari.stringcalculator.NumberValidator.ValidationRule
 
 /**
  * ValidationRule created to discard all the numbers greater than or equals to the value passed in the constructor.

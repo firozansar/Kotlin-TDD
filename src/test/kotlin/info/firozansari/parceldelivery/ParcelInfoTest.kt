@@ -1,4 +1,4 @@
-package info.firozansari.parcel_delivery
+package info.firozansari.parceldelivery
 
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Assertions.assertNotNull

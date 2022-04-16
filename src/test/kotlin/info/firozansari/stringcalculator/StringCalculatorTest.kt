@@ -1,4 +1,4 @@
-package info.firozansari.string_calculator
+package info.firozansari.stringcalculator
 
 import io.mockk.junit5.MockKExtension
 import org.junit.jupiter.api.Assertions.*

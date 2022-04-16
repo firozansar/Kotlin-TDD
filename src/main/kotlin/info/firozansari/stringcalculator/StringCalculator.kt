@@ -1,4 +1,4 @@
-package info.firozansari.string_calculator
+package info.firozansari.stringcalculator
 
 import java.util.*
 

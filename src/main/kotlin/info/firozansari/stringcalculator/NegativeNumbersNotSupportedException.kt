@@ -1,4 +1,4 @@
-package info.firozansari.string_calculator
+package info.firozansari.stringcalculator
 
 /**
  * Exception created to be thrown when the application is used with negative numbers.

@@ -1,3 +1,3 @@
-package info.firozansari.string_calculator
+package info.firozansari.stringcalculator
 
 open class ValidatorException : Exception()

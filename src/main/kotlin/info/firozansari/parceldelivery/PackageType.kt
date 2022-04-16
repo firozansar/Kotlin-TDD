@@ -1,4 +1,4 @@
-package info.firozansari.parcel_delivery
+package info.firozansari.parceldelivery
 
 enum class PackageType {
     Document, SmallParcel, LargeParcel
