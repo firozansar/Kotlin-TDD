@@ -16,6 +16,7 @@ import java.time.LocalTime
 import java.util.Arrays
 
 class ParkingLotSystemTest {
+
     private lateinit var parkingLotSystem: ParkingLotSystem
 
     @BeforeEach
