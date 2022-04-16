@@ -1,9 +1,7 @@
 package info.firozansari.money
 
-import kotlin.collections.HashMap
-
 class Bank {
-    private var rates = HashMap<CurrencyPair, Int>()
+    private var rates = mutableMapOf<CurrencyPair, Int>()
 
     fun reduce(source: Expression, to: String): Money {
         return source.reduce(this, to)

@@ -6,13 +6,12 @@ import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.assertThrows
 
 class LoginManagerTest {
-    private lateinit var userRepo: HashMap<String, String>
+    private var userRepo = mutableMapOf<String, String>()
     private lateinit var loginManager: LoginManager
 
     @BeforeEach
     fun setUp() {
         // Arrange
-        userRepo = HashMap()
         userRepo["myuser"] = "mypassword"
         loginManager = LoginManager(userRepo)
     }
