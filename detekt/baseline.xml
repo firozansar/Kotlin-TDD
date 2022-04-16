@@ -8,6 +8,7 @@
     <ID>EqualsWithHashCodeExist:Money.kt$Money : Expression</ID>
     <ID>EqualsWithHashCodeExist:ParkingSlot.kt$ParkingSlot</ID>
     <ID>LargeClass:ParkingLotSystemTest.kt$ParkingLotSystemTest</ID>
+    <ID>LongMethod:GameOfLifeWithConwaysRuleTest.kt$GameOfLifeWithConwaysRuleTest.OscillatingPatterns$@Test fun `pulsar pattern is a period 3 oscillator`()</ID>
     <ID>LongMethod:ParkingLotSystemTest.kt$ParkingLotSystemTest$@Test fun givenVehicleToPark_WhenDriverIsHandicap_ShouldParkVehicleAtNearestSpot()</ID>
     <ID>LongMethod:PostalRateCalculator.kt$PostalRateCalculator$@JvmStatic fun main(args: Array&lt;String&gt;)</ID>
     <ID>MagicNumber:Bike.kt$Bike$4</ID>

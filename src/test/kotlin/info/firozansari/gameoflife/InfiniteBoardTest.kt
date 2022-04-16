@@ -32,13 +32,17 @@ class InfiniteBoardTest {
             )
 
             assertAll({
-                assertEquals(board, boardFromString(
+                assertEquals(
+                    board,
+                    boardFromString(
                         "#.",
                         ".#",
                     )
                 )
             }, {
-                assertEquals(board, boardFromString(
+                assertEquals(
+                    board,
+                    boardFromString(
                         "#....",
                         ".#...",
                         ".....",
@@ -73,7 +77,8 @@ class InfiniteBoardTest {
             assertEquals(
                 board.evolve(
                     ClassicRule(survivalPredicate = { false }, birthPredicate = { false })
-                ), Infinite2DBoard()
+                ),
+                Infinite2DBoard()
             )
         }
 
