@@ -77,7 +77,7 @@ class FizzBuzzAcceptanceTest {
                 }
             }
             println(fizzBuzz.convert(checkThis))
-           assertEquals(expectedVal, fizzBuzz.convert(checkThis))
+            assertEquals(expectedVal, fizzBuzz.convert(checkThis))
         }
     }
 
