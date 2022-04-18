@@ -12,13 +12,9 @@
     <ID>LongMethod:ParkingLotSystemTest.kt$ParkingLotSystemTest$@Test fun givenVehicleToPark_WhenDriverIsHandicap_ShouldParkVehicleAtNearestSpot()</ID>
     <ID>LongMethod:PostalRateCalculator.kt$PostalRateCalculator$@JvmStatic fun main(args: Array&lt;String&gt;)</ID>
     <ID>MagicNumber:Bike.kt$Bike$4</ID>
-    <ID>MagicNumber:FizzBuzzProcessor.kt$FizzBuzzProcessor$117769990</ID>
-    <ID>MagicNumber:FizzBuzzProcessor.kt$FizzBuzzProcessor$15</ID>
-    <ID>MagicNumber:FizzBuzzProcessor.kt$FizzBuzzProcessor$19</ID>
-    <ID>MagicNumber:FizzBuzzProcessor.kt$FizzBuzzProcessor$2</ID>
-    <ID>MagicNumber:FizzBuzzProcessor.kt$FizzBuzzProcessor$24</ID>
-    <ID>MagicNumber:FizzBuzzProcessor.kt$FizzBuzzProcessor$3</ID>
-    <ID>MagicNumber:FizzBuzzProcessor.kt$FizzBuzzProcessor$5</ID>
+    <ID>MagicNumber:FizzBuzzConverter.kt$FizzBuzzConverter$15</ID>
+    <ID>MagicNumber:FizzBuzzConverter.kt$FizzBuzzConverter$3</ID>
+    <ID>MagicNumber:FizzBuzzConverter.kt$FizzBuzzConverter$5</ID>
     <ID>MagicNumber:PostalRateCalculator.kt$PostalRateCalculator$0.08</ID>
     <ID>MagicNumber:PostalRateCalculator.kt$PostalRateCalculator$0.10</ID>
     <ID>MagicNumber:PostalRateCalculator.kt$PostalRateCalculator$0.15</ID>
@@ -40,6 +36,7 @@
     <ID>MaxLineLength:ParkingLotSystem.kt$ParkingLotSystem$if (vehicleDetails.vehicleSize === Car.LARGE_CAR) return getParkingLotAccordingToLargeCar(vehicleDetails.getDriverType())</ID>
     <ID>MaxLineLength:StringCalculator.kt$StringCalculator$*</ID>
     <ID>MaximumLineLength:info.firozansari.parking.services.ParkingLotSystem.kt:42</ID>
+    <ID>NestedBlockDepth:FizzBuzzAcceptanceTest.kt$FizzBuzzAcceptanceTest$// Write a program that prints the numbers from 1 to 100. // But for multiples of three print “Fizz” instead of the number // and for the multiples of five print “Buzz”. // For numbers which are multiples of both three and five print “FizzBuzz” // this uses an algorithmic model @Test fun checkAllNumbers()</ID>
     <ID>NestedBlockDepth:ParkingLotSystem.kt$ParkingLotSystem$fun getParkingLotAccordingToLargeCar(driverType: DriverType): ParkingLot</ID>
     <ID>NestedBlockDepth:ParkingLotSystem.kt$ParkingLotSystem$fun unPark(vehicle: String?): Boolean</ID>
     <ID>NoWildcardImports:info.firozansari.calculator.PostalRateCalculatorTest.kt:5</ID>
@@ -50,19 +47,8 @@
     <ID>NoWildcardImports:info.firozansari.stringcalculator.NumberValidator.kt:3</ID>
     <ID>NoWildcardImports:info.firozansari.stringcalculator.StringCalculator.kt:3</ID>
     <ID>NoWildcardImports:info.firozansari.stringcalculator.StringCalculatorTest.kt:4</ID>
-    <ID>PackageNaming:DeliveryType.kt$package info.firozansari.parceldelivery</ID>
-    <ID>PackageNaming:ForbiddenNumberSearcher.kt$package info.firozansari.stringcalculator</ID>
-    <ID>PackageNaming:LessThanValidationRule.kt$package info.firozansari.stringcalculator</ID>
-    <ID>PackageNaming:NegativeNumberSearcher.kt$package info.firozansari.stringcalculator</ID>
-    <ID>PackageNaming:NegativeNumbersNotSupportedException.kt$package info.firozansari.stringcalculator</ID>
-    <ID>PackageNaming:NumberExtractor.kt$package info.firozansari.stringcalculator</ID>
-    <ID>PackageNaming:NumberValidator.kt$package info.firozansari.stringcalculator</ID>
-    <ID>PackageNaming:PackageType.kt$package info.firozansari.parceldelivery</ID>
-    <ID>PackageNaming:ParcelInfo.kt$package info.firozansari.parceldelivery</ID>
-    <ID>PackageNaming:StringCalculator.kt$package info.firozansari.stringcalculator</ID>
-    <ID>PackageNaming:ValidatorException.kt$package info.firozansari.stringcalculator</ID>
     <ID>ProtectedMemberInFinalClass:InMemoryBookRepository.kt$InMemoryBookRepository$// ~~~ Private helpers protected fun getBookKey(book: Book): String?</ID>
-    <ID>ReturnCount:FizzBuzzProcessor.kt$FizzBuzzProcessor$fun convert(fizzBuzz: Int): String</ID>
+    <ID>ReturnCount:FizzBuzzConverter.kt$FizzBuzzConverter$fun convert(toConvertToFizzBuzz: Int): String</ID>
     <ID>ReturnCount:ParcelInfo.kt$ParcelInfo$fun calculatePrice(): Long</ID>
     <ID>ReturnCount:ParkingLotSystem.kt$ParkingLotSystem$fun unPark(vehicle: String?): Boolean</ID>
     <ID>ReturnCount:ParkingLotSystem.kt$ParkingLotSystem$private fun getParkingLotAccordingToDriverTypeAndCarSize(vehicleDetails: VehicleDetails): ParkingLot</ID>
@@ -70,7 +56,6 @@
     <ID>TooManyFunctions:ParkingLotSystem.kt$ParkingLotSystem</ID>
     <ID>UnnecessaryAbstractClass:Person.kt$Person</ID>
     <ID>UnnecessaryAbstractClass:Product.kt$Product</ID>
-    <ID>UnusedPrivateMember:FizzBuzzProcessor.kt$FizzBuzzProcessor$args: List&lt;String&gt;</ID>
     <ID>UnusedPrivateMember:Frame.kt$Frame$private val colour: String</ID>
     <ID>UnusedPrivateMember:ParkingLot.kt$ParkingLot$slots</ID>
   </CurrentIssues>
