@@ -33,4 +33,5 @@ class FizzBuzzConverterTest {
     @Test
     fun multiplesOfBothThreeAndFive() {
         assertEquals("FizzBuzz", fizzBuzz.convert(15))
+    }
 }
