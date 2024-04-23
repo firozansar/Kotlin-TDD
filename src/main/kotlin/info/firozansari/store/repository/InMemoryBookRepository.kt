@@ -2,8 +2,10 @@ package info.firozansari.store.repository
 
 import info.firozansari.store.data.Book
 
-class InMemoryBookRepository : BookRepository {
-    private val hash: MutableMap<String?, Book>
+open class InMemoryBookRepository : BookRepository {
+
+    private val hash: MutableMap<String?, Book> = HashMap()
+
     fun add(book: Book) {
         hash[getBookKey(book)] = book
     }
@@ -19,9 +21,5 @@ class InMemoryBookRepository : BookRepository {
     //~~~ Private helpers
     protected fun getBookKey(book: Book): String? {
         return book.reference
-    }
-
-    init {
-        hash = HashMap()
     }
 }

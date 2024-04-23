@@ -1,54 +1,58 @@
 package info.firozansari.login
 
-import org.junit.jupiter.api.Assertions
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.assertThrows
 
 class LoginManagerTest {
-    private var userRepo: HashMap<String, String>? = null
-    private var loginManager: LoginManager? = null
+
+    private lateinit var userRepo: HashMap<String, String>
+
+    private lateinit var loginManager: LoginManager
+
     @BeforeEach
     fun setUp() {
-        // Arrange
+        // Given
         userRepo = HashMap()
-        userRepo!!["myuser"] = "mypassword"
-        loginManager = LoginManager(userRepo!!)
+        userRepo["myuser"] = "mypassword"
+        loginManager = LoginManager(userRepo)
     }
 
     @Test
-    @Throws(EmptyPasswordException::class, InvalidCredentialsException::class)
-    fun testLogin_CredentialsAreValid_ShouldReturnTrue() {
-        // Arrange
+    fun `GIVEN valid credentials WHEN login is invoked THEN return True`() {
+        // GIVEN
         val username = "myuser"
         val password = "mypassword"
 
-        // Act
-        val result = loginManager!!.login(username, password)
+        // WHEN
+        val result = loginManager.login(username, password)
 
-        // Assert
-        Assertions.assertTrue(result)
+        // THEN
+        assertTrue(result)
     }
 
-    // Assert
     @Test
-    @Throws(EmptyPasswordException::class, InvalidCredentialsException::class)
-    fun testLogin_CredentialsAreNotValid_ShouldThrowInvalidCredentialsException() {
-        // Arrange
+    fun `GIVEN invalid credentials WHEN login is invoked THEN throw InvalidCredentialsException`() {
+        // GIVEN
         val username = "invaliduser"
         val password = "mypassword"
 
-        // Act
-        loginManager!!.login(username, password)
+        // WHEN
+        assertThrows<InvalidCredentialsException> {
+            loginManager.login(username, password)
+        }
     }
 
-    // Assert
     @Test
-    @Throws(EmptyPasswordException::class, InvalidCredentialsException::class)
-    fun testLogin_PasswordIsEmpty_ShouldThrowEmptyPasswordException() {
-        // Arrange
+    fun `GIVEN empty password WHEN login is invoked THEN throw EmptyPasswordException`() {
+        // GIVEN
         val username = "invaliduser"
+        val password = ""
 
-        // Act
-        loginManager!!.login(username, "")
+        // WHEN
+        assertThrows<EmptyPasswordException> {
+            loginManager.login(username, password)
+        }
     }
 }
