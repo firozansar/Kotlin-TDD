@@ -1,5 +1,14 @@
 package info.firozansari.parking.services
 
+<<<<<<< Updated upstream
+=======
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
+import info.firozansari.parking.model.VehicleDetails
+import info.firozansari.parking.observer.AirportSecurity
+import info.firozansari.parking.observer.ParkingLotOwner
+import org.junit.jupiter.api.Assertions.*
+>>>>>>> Stashed changes
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import info.firozansari.parking.model.VehicleDetails
@@ -27,6 +36,8 @@ class ParkingLotSystemTest {
     @Test
     fun givenVehicle_WhenParked_ShouldReturnTrue() {
         try {
+<<<<<<< Updated upstream
+=======
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle", DriverType.NORMAL_DRIVER,
@@ -37,6 +48,37 @@ class ParkingLotSystemTest {
             Assertions.assertTrue(isParked)
         } catch (e: ParkingLotException) {
             e.printStackTrace()
+        }
+    }
+
+    @Test
+    @Throws(ParkingLotException::class)
+    fun givenVehicleParked_WhenAlreadyParked_ShouldThrowException() {
+        try {
+>>>>>>> Stashed changes
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+<<<<<<< Updated upstream
+            )
+            val isParked = parkingLotSystem.isVehicleParked("vehicle")
+            Assertions.assertTrue(isParked)
+        } catch (e: ParkingLotException) {
+            e.printStackTrace()
+=======
+            )
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+        } catch (e: ParkingLotException) {
+            println(e.message)
+            Assertions.assertEquals(ParkingLotException.ExceptionType.ALREADY_PARKED, e.type)
+>>>>>>> Stashed changes
         }
     }
 
@@ -169,6 +211,46 @@ class ParkingLotSystemTest {
         val airportSecurity = AirportSecurity()
         parkingLotSystem.register(airportSecurity)
         try {
+<<<<<<< Updated upstream
+=======
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle1", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle2", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle3", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle4", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+        } catch (e: ParkingLotException) {
+            parkingLotSystem.unPark("vehicle3")
+            val capacityFull = airportSecurity.isCapacityFull
+            Assertions.assertFalse(capacityFull)
+        }
+    }
+
+    @Test
+    @Throws(ParkingLotException::class)
+    fun givenWhenLotIsFull_ShouldInformOwner() {
+        val parkingLotOwner = ParkingLotOwner()
+        parkingLotSystem.register(parkingLotOwner)
+        try {
+>>>>>>> Stashed changes
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
@@ -240,12 +322,114 @@ class ParkingLotSystemTest {
         val parkingLotOwner = ParkingLotOwner()
         try {
             parkingLotSystem.register(parkingLotOwner)
+<<<<<<< Updated upstream
+=======
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle1", DriverType.NORMAL_DRIVER,
                     Car.SMALL_CAR
                 ), "AA"
             )
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle2", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle3", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle4", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+        } catch (e: ParkingLotException) {
+            parkingLotSystem.unPark("vehicle2")
+            val capacityFull = parkingLotOwner.isCapacityFull
+            Assertions.assertFalse(capacityFull)
+        }
+    }
+
+    @Test
+    fun givenVehicle_ShouldPark_OnAvailableSlot() {
+        try {
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle2", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle3", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+        } catch (e: ParkingLotException) {
+            e.printStackTrace()
+        }
+    }
+
+    @Test
+    fun givenVehicle_WhenParkedShouldFindTheLocation() {
+        try {
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+            val vehicleLocation = parkingLotSystem.findVehicleLocation("vehicle")
+            Assertions.assertEquals(0, vehicleLocation)
+        } catch (e: ParkingLotException) {
+            e.printStackTrace()
+        }
+    }
+
+    @Test
+    @Throws(ParkingLotException::class)
+    fun givenVehicle_WhenNotFound_ShouldThrowException() {
+        try {
+            parkingLotSystem.findVehicleLocation("vehicle2")
+        } catch (e: ParkingLotException) {
+            println(e.message)
+            Assertions.assertEquals(ParkingLotException.ExceptionType.NOT_FOUND, e.type)
+        }
+    }
+
+    @Test
+    fun givenVehicle_WhenParked_ShouldReturnTime() {
+        try {
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+            val parkTime = parkingLotSystem.getParkTime("vehicle")
+            Assertions.assertEquals(parkTime, LocalTime.now().withNano(0))
+        } catch (e: ParkingLotException) {
+            println(e.message)
+        }
+    }
+
+    @Test
+    @Throws(ParkingLotException::class)
+    fun givenVehicle_WhenNotParked_ShouldThrowException() {
+        try {
+>>>>>>> Stashed changes
+            parkingLotSystem.parkVehicle(
+                VehicleDetails(
+                    "vehicle1", DriverType.NORMAL_DRIVER,
+                    Car.SMALL_CAR
+                ), "AA"
+            )
+<<<<<<< Updated upstream
             parkingLotSystem.parkVehicle(
                 VehicleDetails(
                     "vehicle2", DriverType.NORMAL_DRIVER,
@@ -306,6 +490,12 @@ class ParkingLotSystemTest {
             Assertions.assertEquals(0, vehicleLocation)
         } catch (e: ParkingLotException) {
             e.printStackTrace()
+=======
+            val parkTime = parkingLotSystem.getParkTime("vehicle2")
+            Assertions.assertEquals(parkTime, LocalTime.now().withNano(0))
+        } catch (e: ParkingLotException) {
+            Assertions.assertEquals(ParkingLotException.ExceptionType.NOT_FOUND, e.type)
+>>>>>>> Stashed changes
         }
     }
 

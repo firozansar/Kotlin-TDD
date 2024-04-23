@@ -31,6 +31,43 @@ class PaymentBrokerTest {
         every { provider.isAvailable } returns true
         every { provider.deposit(wallet.id, amount) } returns true
         every { broker.pay(any()) } returns true
+<<<<<<< Updated upstream
+=======
+
+        // Act & Assert
+        assertTrue(broker.pay(amount))
+    }
+
+    // Assert
+    @Test
+    @Throws(InsufficientFundsException::class, ProviderNotAvailableException::class)
+    fun testPay_WalletDoesNotHaveFunds_ShouldThrowInsufficientFundsException() {
+        // Arrange
+        val amount = 10
+        val balance = 9
+
+        every { wallet.balance } returns balance
+        every { provider.isAvailable } returns true
+        every { provider.deposit(wallet.id, amount) } returns true
+        every { broker.pay(any()) } returns true
+
+        // Act
+        broker.pay(amount)
+    }
+
+    // Assert
+    @Test
+    @Throws(InsufficientFundsException::class, ProviderNotAvailableException::class)
+    fun testPay_ProviderIsNotAvailable_ShouldThrowProviderNotAvailableException() {
+        // Arrange
+        val amount = 10
+        val balance = 20
+
+        every { wallet.balance } returns balance
+        every { provider.isAvailable } returns true
+        every { provider.deposit(wallet.id, amount) } returns true
+        every { broker.pay(any()) } returns true
+>>>>>>> Stashed changes
 
         // Act & Assert
         assertTrue(broker.pay(amount))
