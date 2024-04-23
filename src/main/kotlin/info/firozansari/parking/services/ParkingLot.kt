@@ -3,7 +3,8 @@ package info.firozansari.parking.services
 import info.firozansari.parking.model.ParkingSlot
 
 class ParkingLot(var lotSize: Int) {
-    private val parkingSlotList: MutableList<ParkingSlot?>
+
+    private val parkingSlotList: MutableList<ParkingSlot?> = ArrayList()
 
     private fun initializeParkingLot() {
         val bound = lotSize
@@ -25,7 +26,6 @@ class ParkingLot(var lotSize: Int) {
         get() = parkingSlotList
 
     init {
-        parkingSlotList = ArrayList()
         initializeParkingLot()
     }
 }

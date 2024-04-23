@@ -14,9 +14,13 @@ import java.time.LocalTime
 import java.util.stream.IntStream
 
 class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
-    private val observers: MutableList<ParkingLotObserver>
+
+    private val observers: MutableList<ParkingLotObserver> = ArrayList()
+
     private val parkingLots: List<ParkingLot>
-    var numberOfLots: Int
+
+    private var numberOfLots: Int
+
     fun register(parkingObservers: ParkingLotObserver) {
         observers.add(parkingObservers)
     }
@@ -238,7 +242,6 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
     }
 
     init {
-        observers = ArrayList()
         parkingLots = ArrayList()
         IntStream.range(0, numberOfLots).forEachOrdered { slots: Int ->
             parkingLots.add(
