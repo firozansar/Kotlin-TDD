@@ -14,6 +14,14 @@ import java.time.LocalTime
 import java.util.stream.IntStream
 
 class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
+<<<<<<< Updated upstream
+=======
+<<<<<<< HEAD
+    private val observers = mutableListOf<ParkingLotObserver>()
+    private val parkingLots = mutableListOf<ParkingLot>()
+    var numberOfLots: Int
+=======
+>>>>>>> Stashed changes
 
     private val observers: MutableList<ParkingLotObserver> = ArrayList()
 
@@ -21,6 +29,10 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
 
     private var numberOfLots: Int
 
+<<<<<<< Updated upstream
+=======
+>>>>>>> develop
+>>>>>>> Stashed changes
     fun register(parkingObservers: ParkingLotObserver) {
         observers.add(parkingObservers)
     }
@@ -242,7 +254,14 @@ class ParkingLotSystem(var lotSize: Int, numberOfLots: Int) {
     }
 
     init {
+<<<<<<< Updated upstream
         parkingLots = ArrayList()
+=======
+<<<<<<< HEAD
+=======
+        parkingLots = ArrayList()
+>>>>>>> develop
+>>>>>>> Stashed changes
         IntStream.range(0, numberOfLots).forEachOrdered { slots: Int ->
             parkingLots.add(
                 slots, ParkingLot(
