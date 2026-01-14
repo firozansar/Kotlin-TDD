@@ -4,6 +4,8 @@ This project is a collection of Test Driven Development (TDD) examples written i
 
 Game of Life TDD example is inspired by [kata-gameoflife](https://github.com/andrej-dyck/kata-gameoflife)
 
+JetBrains [TDD guide](https://www.jetbrains.com/help/idea/tdd-with-kotlin.html#summary)
+
 **Build**
 ```
 ./gradlew build
@@ -22,7 +24,7 @@ Game of Life TDD example is inspired by [kata-gameoflife](https://github.com/and
 
 Code licences as MIT Licence
 
-Copyright 2024 Firoz Ansari
+Copyright 2026 Firoz Ansari
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
