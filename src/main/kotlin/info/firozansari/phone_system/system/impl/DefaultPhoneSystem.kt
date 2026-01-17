@@ -25,7 +25,7 @@ class DefaultPhoneSystem @JvmOverloads constructor(factory: Function<in PhoneSoc
     }
 
     protected inner class DefaultSocket(override val number: String) : PhoneSocket {
-        fun call(
+        override fun call(
             number: String,
             onReject: Consumer<RejectReason>,
             onAccept: Consumer<Call?>,
