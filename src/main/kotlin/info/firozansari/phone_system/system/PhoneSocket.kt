@@ -24,7 +24,7 @@ interface PhoneSocket {
     fun call(
         number: String,
         onReject: Consumer<RejectReason>,
-        onAccept: Consumer<Call>,
+        onAccept: Consumer<Call?>,
         onMessageReceive: Consumer<String>,
         onEnd: Runnable
     ): CallOutgoing

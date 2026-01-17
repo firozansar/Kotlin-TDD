@@ -22,13 +22,13 @@ internal class Connection(
     }
 
     private fun call(name: String, onMessageReceive: Consumer<String>, onEnd: Runnable): Call {
-        return object : Call() {
-            fun send(message: String) {
+        return object : Call {
+            override fun send(message: String?) {
                 assertOpen()
-                onMessageReceive.accept(message)
+                message?.let { onMessageReceive.accept(it) }
             }
 
-            fun end() {
+            override fun end() {
                 assertOpen()
                 open = false
                 onEnd.run()

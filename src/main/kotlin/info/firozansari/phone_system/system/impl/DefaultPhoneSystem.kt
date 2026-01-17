@@ -17,18 +17,18 @@ class DefaultPhoneSystem @JvmOverloads constructor(factory: Function<in PhoneSoc
     protected fun internalGetPhone(number: String): ConnectedPhone {
         return phones.computeIfAbsent(
             number,
-            Function<String, ConnectedPhone?> { number: String -> newPhone(number) })
+            Function<String, ConnectedPhone?> { number: String -> newPhone(number) } as Function<in String, out ConnectedPhone>)
     }
 
     protected fun newPhone(number: String): ConnectedPhone? {
         return factory.apply(DefaultSocket(number))
     }
 
-    protected inner class DefaultSocket(val number: String) : PhoneSocket {
+    protected inner class DefaultSocket(override val number: String) : PhoneSocket {
         fun call(
             number: String,
             onReject: Consumer<RejectReason>,
-            onAccept: Consumer<Call>,
+            onAccept: Consumer<Call?>,
             onMessageReceive: Consumer<String>,
             onEnd: Runnable
         ): CallOutgoing {

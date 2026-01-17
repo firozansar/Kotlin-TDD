@@ -6,7 +6,7 @@ import java.util.function.Consumer
 class CallRequest(
     private val number1: String,
     onReject: Consumer<RejectReason>,
-    onAccept: Consumer<Call>,
+    onAccept: Consumer<Call?>,
     onMessageReceive: Consumer<String>,
     onEnd: Runnable
 ) : CallOutgoing, CallIncoming {
